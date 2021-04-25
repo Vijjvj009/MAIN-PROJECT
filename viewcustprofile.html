@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CUSTOMER DETAILS</title>
+    <style>
+        h5{
+        display: inline;
+        }
+        table,th,td
+        {
+        border: 1px solid black;
+        }
+        table.center
+        {
+        margin-left: auto;
+        margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+<form action="viewcustprofile" method="post">
+    {% csrf_token %}
+
+<div style="text-align:center">
+
+<div style="text-align:center">
+<table class="center" border="1">
+    <tr>
+
+
+<tr>
+    <th>FIRST NAME</th>
+    <td>{{i.fname}}</td>
+</tr>
+<tr>
+    <th>LAST NAME</th>
+    <td>{{i.lname}}</td>
+</tr>
+<tr>
+    <th>EMAIL</th>
+    <td>{{i.email}}</td>
+</tr>
+    <tr>
+    <th>PHONE</th>
+    <td>{{i.phone}}</td>
+</tr>
+<tr>
+    <th>ADDRESS</th>
+    <td>{{i.address}}</td>
+</tr>
+<tr>
+    <th>CITY</th>
+    <td>{{i.city}}</td>
+</tr>
+    <tr>
+    <th>DISTRICT</th>
+    <td>{{i.district}}</td>
+</tr>
+
+
+<tr>
+    <th>PIN</th>
+    <td>{{i.pin}}</td>
+</tr>
+
+
+</table>
+
+</form>
+</body>
+</html>

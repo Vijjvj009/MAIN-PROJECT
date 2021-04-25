@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MEMBER DETAILS</title>
+    <style>
+        h5{
+        display: inline;
+        }
+        table,th,td
+        {
+        border: 1px solid black;
+        }
+        table.center
+        {
+        margin-left: auto;
+        margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+<form action="viewmemprofile" method="post">
+    {% csrf_token %}
+
+<div style="text-align:center">
+
+<div style="text-align:center">
+<table class="center" border="1">
+    <tr>
+<img src="{{i.photo.url}}" height="250" width="250"></tr>
+
+<tr>
+    <th>FIRST NAME</th>
+    <td>{{i.fname}}</td>
+</tr>
+<tr>
+    <th>LAST NAME</th>
+    <td>{{i.lname}}</td>
+</tr>
+<tr>
+    <th>ADHAR NO</th>
+    <td>{{i.adhno}}</td>
+</tr>
+    <tr>
+    <th>HOUSE NAME</th>
+    <td>{{i.hname}}</td>
+</tr>
+<tr>
+    <th>PLACE</th>
+    <td>{{i.place}}</td>
+</tr>
+<tr>
+    <th>PIN</th>
+    <td>{{i.pin}}</td>
+</tr>
+    <tr>
+    <th>PHONE</th>
+    <td>{{i.phone}}</td>
+</tr>
+
+
+<tr>
+    <th>CASTE</th>
+    <td>{{i.caste}}</td>
+</tr>
+ <tr>
+    <th>DATE OF BIRTH</th>
+    <td>{{i.dob}}</td>
+</tr>
+
+
+<tr>
+    <th>EMAIL</th>
+    <td>{{i.email}}</td>
+</tr>
+
+
+
+</table>
+
+</form>
+</body>
+</html>

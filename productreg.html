@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>PRODUCT REGISTRATION</title>
+</head>
+<body>
+<div style="text-align:center">
+</div>
+<div style="text-align:center">
+<div class="container p-3 my-3 bg-dark text-white"><br><br>
+<h1>REGISTER PRODUCT!!!</h1><br><br>
+</div></div>
+<form action="proreg" method="post" enctype="multipart/form-data">
+     <div style="text-align:center">
+    {% csrf_token %}
+          <div class="container-sm border"><br>
+<div class="container">
+<div class="col" style="background-color:white;">
+    <div class="form-group">
+      <div style="text-align:left">
+      <label for="pname"><b>PRODUCT NAME:</b></label>
+      <input type="text" id="pname" name="pname" class="form-control"  placeholder="Enter Product name" required>
+      </div></div>
+    <div class="form-group">
+      <div style="text-align:left">
+      <label for="srate"><b>PRICE:</b></label>
+      <input type="number" id="srate" name="srate" class="form-control"  placeholder="Enter Price" required>
+      </div></div>
+    <div class="form-group">
+      <div style="text-align:left">
+           <label for="file"><b>PRODUCT IMAGE:</b></label>
+     <input type="file" name="file" id="file" class="form-control"  placeholder="Upload Photo"   required>
+      </div></div>
+     <div class="form-group">
+      <div style="text-align:left">
+           <label for="ptype"><b>PRODUCT TYPE:</b></label>
+           <select name="ptype" id="ptype" class="form-control">
+               <option>HOME DECOR</option>
+    <option>SNACKS</option>
+    <option>PICKLE</option>
+    <option>FACE MASK</option>
+    <option>SANITIZER</option>
+    <option>SPICES</option>
+    <option>HOUSE KEEPING\CLEANING</option>
+
+  </select>
+      </div></div>
+    <div class="form-group">
+      <div style="text-align:left">
+           <label for="punit"><b>PRODUCT UNIT:</b></label>
+           <select name="punit" id="punit" class="form-control">
+               <option>PER PIECE</option>
+    <option>500 gm</option>
+    <option>500 ml</option>
+    <option>COMBO OF 10</option>
+               </select>
+      </div></div>
+    <div class="form-group">
+      <div style="text-align:left">
+      <label for="dp"><b>PRICE:</b></label>
+      <input type="text" id="dp" name="dp" class="form-control"  placeholder="Enter Description" required>
+      </div></div>
+    <input type="submit" name="register" value="REGISTER" class="btn btn-danger">
+     <input type="reset" name="reset" value="RESET" required class="btn btn-success">
+</form>
+</div>
+</div>
+</body>
+</html>

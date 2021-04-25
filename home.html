@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>HOME</title>
+</head>
+<body>
+
+<div class="container p-3 my-3 bg-dark text-white">
+<div style="text-align:left">
+    <h1>KUDUMBASHREE PROCESS HANDLING SYSTEM</h1>
+    {% csrf_token %}
+    <a href="login"><input type="button" name="login" value="LOGIN" class="btn btn-danger"></a>
+    <a href="ureg"><input type="button" name="ureg" value="SIGN UP" class="btn btn-success"></a>
+    </div>
+
+<div style="text-align:right">
+<form action="sear" method="post">
+{% csrf_token %}
+PRODUCT NAME:<select name="id">{% for i in d %}
+<option value="{{i.id}}">{{i.pname}}</option>
+{% endfor %}
+</select>
+<input type="submit" value="SEARCH" class="btn btn-danger">
+</form>
+</div>
+</div>
+<div class="container-sm border"><br>
+<div class="container">
+<div style="text-align:center">
+<img src="{% static '1.jpg' %}" class="img-rounded" alt="Cinque Terre" width="300" height="200"><br>
+
+<h4> LOCAL SELF GOVERNMENT DEPARTMENT , KERALA</h4><br>
+    <div class="col-sm-16">
+    <h6><p class="text-justify">Kudumbashree, the Kerala State Poverty Eradication Mission was launched on 17th May 1998 inaugurated by the Prime Minister, Shri Atal Bihari Vajpayee. The Mission aims to eradicate absolute poverty within a definite time frame of 10 years under the leadership of Local Self Governments formed and empowered by the 73rd and 74th Amendments of the Constitution of India. The Mission launched by the State Government with the active support of Government of India and NABARD has adopted a different methodology in addressing poverty by organizing the poor in to community-based organizations. The Mission follows a process approach rather than a project approach.
+
+Kudumbashree, a community organization of Neighborhood Groups (NHGs) of women in Kerala, has been recognized as an effective strategy for the empowerment of women in rural as well as urban areas: bringing women together from all spheres of life to fight for their rights or for empowerment. The overall empowerment of women is closely linked to economic empowerment. Women through these NHGs work on a range of issues such as health, nutrition, agriculture, etc. besides income generation activities and seeking micro credit.
+
+Kudumbashree differs from conventional programmes in that it perceives poverty not just as the deprivation of money, but also as the deprivation of basic rights. The poor need to find a collective voice to help claim these rights.‍</p></h6></div><br>
+<div style="text-align:center">
+
+<img src="{% static 'cmpic.jpg' %}" class="img-rounded" alt="Cinque Terre" width="200" height="250">
+</div>
+<div style="text-align:center">
+        <h6><b>Shri. Pinarayi Vijayan
+</b>‍<br>
+        Hon'ble Chief Minister<br>
+        PHONE‍: 0471 2327895, 2327796<br>
+        MOBILE‍ : 9895073107<br>
+        EMAIL‍ : <a href="chiefminister@gov.kerala.in">chiefminister@gov.kerala.in </h6></a>
+</div><br>
+    <div class="container">
+<div class="row">
+<div class="col-sm-4"><img src="{% static 'ministerlsgd.jpg' %}" class="img-rounded" alt="Cinque Terre" width="200" height="250"><br>
+<b>Shri. A C Moideen
+
+</b><br>
+<h6></h6><b></b><p>Minister for Local Self Govt Department<br>
+
+MOBILE‍: 9446375216<br>
+PHONE‍ :0471 2518163<br>
+EMAIL : <a href="min.lsgd@kerala.gov.in">min.lsgd@kerala.gov.in </h6></a> </p>
+</div>
+
+<div class="col-sm-4"><img src="{% static 'md.jpg' %}" class="img-rounded" alt="Cinque Terre" width="200" height="250"><br>
+<b>Divya S. Iyer
+
+</b><br>
+<h6></h6><b></b><p>Mission Director<br>
+
+MOBILE‍: 9496592351<br>
+PHONE‍ :0471 2518162<br>
+EMAIL : <a href="divyaofficial@kerala.gov.in">divyaofficial@kerala.gov.in </h6></a> </p>
+</div>
+<div class="col-sm-4"><img src="{% static '101.png' %}" class="img-rounded" alt="Cinque Terre" width="200" height="250"><br>
+<b>
+Shri. S. Harikishore IAS
+</b><br>
+
+<h6></h6><b></b><p>Executive Director Kudumbashree<br>
+
+MOBILE‍: 9446456789<br>
+PHONE‍ :0471 2518678<br>
+EMAIL : <a href="harikishore@gmail.com">harikishore@gmail.com></h6></a> </p>
+</h6></a> </p>
+</div>
+</body>
+
+</html>

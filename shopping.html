@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PRODUCT DETAILS</title>
+    <style>
+        h5{
+        display: inline;
+        }
+        table,th,td
+        {
+        border: 1px solid black;
+        }
+        table.center
+        {
+        margin-left: auto;
+        margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+<form action="shooping1" method="post">
+    {% csrf_token %}
+
+<div style="text-align:center">
+    <h3><b>PRODUCT DETAILS</b></h3></div>
+<div style="text-align:center">
+<table class="center" border="1">
+    <tr>{% for i in data1 %}
+     <img src="{{i.pid.photo.url}}" height="250" width="250"></tr>
+        <input type="hidden" name="id" value="{{i.id}}"><br><br>
+
+<tr>
+    <th>PRODUCT NAME</th>
+    <td>{{i.pid.pname}}</td>
+</tr>
+    <tr>
+    <th>PRODUCT TYPE</th>
+    <td>{{i.pid.ptype}}</td>
+</tr>
+<tr>
+    <th>PRODUCT UNIT</th>
+    <td>{{i.pid.punit}}</td>
+</tr>
+    <tr>
+    <th>DESCRIPTION</th>
+    <td>{{i.pid.dp}}</td>
+</tr>
+<tr>
+    <th>PRICE</th>
+    <td>{{i.pid.srate}}</td>
+</tr>
+<tr>
+    <th>QUANTITY</th>
+    <td>{{i.qty}}</td>
+</tr>
+<tr>
+    <th>GRAND TOTAL</th>
+    <td>{{i.gtotal}}</td>
+</tr>
+    {% endfor %}
+    </tr>
+
+
+</table>
+    <input type="submit" name="submit" value="BUY NOW">
+</div></form>
+<form action="shooping1" method="post">
+    {% csrf_token %}
+
+<div style="text-align:left">
+    <h3><b>CUSTOMER DETAILS</b></h3></div>
+    <table class="left" border="1">
+    <tr>
+
+        <input type="hidden" name="id" value="{{i.id}}"><br><br>
+
+<tr>
+    <th>CUSTOMER NAME</th>
+    <td>{{h.fname}} {{h.lname}}</td>
+</tr>
+    <tr>
+    <th>ADDRESS</th>
+    <td>{{h.address}}</td>
+</tr>
+<tr>
+    <th>CITY</th>
+    <td>{{h.city}}</td>
+</tr>
+    <tr>
+    <th>DISTRICT</th>
+    <td>{{h.district}}</td>
+</tr>
+<tr>
+    <th>PIN</th>
+    <td>{{h.pin}}</td>
+</tr>
+
+
+    </tr>
+
+
+</table>
+    <input type="submit" name="submit" value="CHANGE ADDRESS">
+
+</form><br><br>
+
+
+
+</body>
+</html>

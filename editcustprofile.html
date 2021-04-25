@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit CUSTOMER</title>
+</head>
+<body>
+<center><h1>EDIT PROFILE</h1></center>
+<form action="update" method="post" >
+    {% csrf_token %}
+    <div style="text-align:center">
+        <input type="hidden" value="{{data.id}}" name="id">
+        FIRST NAME:<input type="text" name="fname" value="{{data.fname}}"><br><br>
+        LAST NAME:<input type="text" name="lname" value="{{data.lname}}"><br><br>
+        EMAIL:<input type="text" name="email" value="{{data.email}}"><br><br>
+        PHONE:<input type="text" name="phone" value="{{data.phone}}"><br><br>
+        ADDRESS:<input type="text" name="address" value="{{data.address}}"><br><br>
+        CITY:<input type="text" name="city" value="{{data.city}}"><br><br>
+        DISTRICT:<input type="text" name="district" value="{{data.district}}"><br><br>
+        PIN:<input type="text" name="pin" value="{{data.pin}}"><br><br>
+        <input type="submit" name="update" value="UPDATE">
+         <input type="reset" name="reset" value="RESET">
+    </div>
+</form>
+</body>
+</html>

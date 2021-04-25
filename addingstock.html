@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>ADDING STOCK</title>
+</head>
+<body>
+<div style="text-align:center">
+</div>
+<div style="text-align:center">
+<div class="container p-3 my-3 bg-dark text-white"><br><br>
+<h1>ADDING STOCK!!!</h1><br><br>
+</div></div>
+<form action="adstock" method="post">
+     <div style="text-align:center">
+    {% csrf_token %}
+         <div class="container-sm border"><br>
+<div class="container">
+<div class="col" style="background-color:white;">
+    <div class="form-group">
+      <div style="text-align:left">
+          <label for="pname"><b>PRODUCT NAME:</b></label></div>
+    <select name="id" id="pname" class="form-control">{% for i in d %}
+    <option value="{{i.id}}">{{i.pname}} </option>
+    {% endfor %}
+    </select>
+    </div></div>
+    <a href="adstock"><input type="submit" value="VIEW" class="btn btn-danger"></a><br><br>
+
+
+  </select>
+      </div></div>
+
+
+</form>
+
+</body>
+
+</html>

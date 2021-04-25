@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PRODUCT DETAILS</title>
+    <style>
+        h5{
+        display: inline;
+        }
+        table,th,td
+        {
+        border: 1px solid black;
+        }
+        table.center
+        {
+        margin-left: auto;
+        margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align:center">
+<h1>PRODUCT DETAILS</h1>
+
+<table class="center">
+    <tr>
+        <th>PRODUCT NAME</th>
+        <th>SALE RATE</th>
+        <th>PRODUCT IMAGE</th>
+        <th>PRODUCT TYPE</th>
+        <th>PRODUCT UNIT</th>
+        <th>DESCRIPTION</th>
+        <th>ACTION</th>
+
+
+
+    </tr>
+
+    <tr>
+        {% for i in d %}
+        <form action="editadminpro" method="post">
+            {% csrf_token %}
+        <input type="hidden" name="id" value="{{i.id}}">
+        <td>{{i.pname}}</td>
+        <td>{{i.srate}}</td>
+        <td><img src="{{i.photo.url}}" height="70" width="70"></td>
+        <td>{{i.ptype}}</td>
+        <td>{{i.punit}}</td>
+        <td>{{i.dp}}</td>
+        <td><a href="editadminpro"><button type="submit" name="edit">EDIT</button></a> </td>
+
+        </form>
+    </tr>
+        {% endfor %}
+</table>
+    </div>
+</body>
+</html>

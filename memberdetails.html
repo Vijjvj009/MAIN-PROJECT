@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>MEMBER DETAILS</title>
+    <style>
+        h5{
+        display: inline;
+        }
+        table,th,td
+        {
+        border: 1px solid black;
+        }
+        table.center
+        {
+        margin-left: auto;
+        margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+<table class="center">
+    <tr>
+        <th> NAME</th>
+
+    </tr>
+    <tr>
+        {% for i in d %}
+        <form action="memberdetails1" method="post">
+    {% csrf_token %}
+        <td><input type="submit" value="{{i.fname}} {{i.lname}}" name="name"></td>
+            <input type="hidden" name="id" value="{{i.id}}">
+
+    </tr>
+    </form>
+    {% endfor %}
+</table>
+</body>
+</html>

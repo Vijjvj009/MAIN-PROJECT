@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit CUSTOMER</title>
+</head>
+<body>
+<center><h1>EDIT PRODUCT</h1></center>
+<form action="update1" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div style="text-align:center">
+
+        PRODUCT NAME:<input type="text" name="pname" value="{{data.pname}}"><br><br>
+        SALE RATE:<input type="number" name="srate" value="{{data.srate}}"><br><br>
+        PRODUCT IMAGE:<input type="file" name="file" value="{{data.photo}}"><br><br>
+        PRODUCT TYPE:<input type="text" name="ptype" value="{{data.ptype}}"><br><br>
+        PRODUCT UNIT:<input type="text" name="punit" value="{{data.punit}}"><br><br>
+        DESCRIPTION:<input type="text" name="dp" value="{{data.dp}}"><br><br>
+        <input type="hidden" value="{{data.id}}" name="id">
+        <input type="submit" name="update" value="UPDATE">
+
+    </div>
+</form>
+</body>
+</html>

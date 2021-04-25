@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>MEMBER REGISTRATION</title>
+</head>
+<body>
+<div style="text-align:center">
+    </div>
+<div style="text-align:center">
+<div class="container p-3 my-3 bg-dark text-white"><br><br>
+<h1>REGISTER MEMBER!!!</h1><br><br>
+</div></div>
+<form action="memreg" method="post" enctype="multipart/form-data">
+    <div style="text-align:center">
+    {% csrf_token %}
+         <div class="container-sm border"><br>
+<div class="container">
+<div class="col" style="background-color:white;">
+    <div class="form-group">
+      <div style="text-align:left">
+      <label for="fname"><b>FIRST NAME:</b></label>
+      <input type="fname" id="fname" name="fname" class="form-control"  placeholder="Enter First name">
+      </div></div>
+    <div class="form-group">
+      <div style="text-align:left">
+      <label for="lname"><b>LAST NAME:</b></label>
+      <input type="text" id="lname" name="lname" class="form-control"  placeholder="Enter Last name">
+      </div></div>
+     <div class="form-group">
+      <div style="text-align:left">
+           <label for="adhno"><b>ADHAR NO:</b></label>
+     <input type="number" name="adhno" id="adhno" class="form-control"  placeholder="Enter Adhar no"   required>
+      </div></div>
+     <div class="form-group">
+      <div style="text-align:left">
+           <label for="file"><b>PHOTO:</b></label>
+     <input type="file" name="file" id="file" class="form-control"  placeholder="Upload Photo"   required>
+      </div></div>
+     <div class="form-group">
+      <div style="text-align:left">
+           <label for="hname"><b>HOUSE NAME:</b></label>
+     <input type="text" name="hname" id="hname" class="form-control"  placeholder="Enter Housename"   required>
+      </div></div>
+     <div class="form-group">
+      <div style="text-align:left">
+           <label for="place"><b>PLACE:</b></label>
+     <input type="text" name="place" id="place" class="form-control"  placeholder="Enter Place"   required>
+      </div></div>
+     <div class="form-group">
+      <div style="text-align:left">
+           <label for="pin"><b>PIN NO:</b></label>
+     <input type="number" name="pin" id="pin" class="form-control"  placeholder="Enter Pin no"   required>
+      </div></div>
+     <div class="form-group">
+      <div style="text-align:left">
+           <label for="phone"><b>PHONE:</b></label>
+     <input type="number" name="phone" id="phone" class="form-control"  placeholder="Enter Phone no"   required>
+      </div></div>
+    <div class="form-group">
+      <div style="text-align:left">
+           <label for="caste"><b>CASTE:</b></label>
+           <select name="caste" id="caste" class="form-control">
+    <option>HINDU</option>
+    <option>MUSLIM</option>
+    <option>CHRISTIAN</option>
+  </select>
+      </div></div>
+    <div class="form-group">
+      <div style="text-align:left">
+           <label for="dob"><b>DATE OF BIRTH:</b></label>
+     <input type="date" name="dob" id="dob" class="form-control"  placeholder="Enter Date of birth"   required>
+      </div></div>
+     <div class="form-group">
+      <div style="text-align:left">
+           <label for="email"><b>EMAIL:</b></label>
+     <input type="email" name="email" id="email" class="form-control"  placeholder="Enter Email"   required>
+      </div></div>
+    <div class="form-group">
+      <div style="text-align:left">
+           <label for="password"><b>PASSWORD:</b></label>
+     <input type="password" name="password" id="password" class="form-control"  placeholder="Enter Password"   required>
+      </div></div>
+    <input type="submit" name="reg" value="REGISTER" class="btn btn-danger">
+     <input type="reset" name="reset" value="RESET" required class="btn btn-success">
+</form>
+</div>
+</body>
+</html>

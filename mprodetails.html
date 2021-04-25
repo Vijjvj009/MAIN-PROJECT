@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PRODUCT DETAILS</title>
+    <style>
+        h5{
+        display: inline;
+        }
+        table,th,td
+        {
+        border: 1px solid black;
+        }
+        table.center
+        {
+        margin-left: auto;
+        margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+<div style="text-align:center">
+    <h3><b>PRODUCT DETAILS</b></h3></div>
+<div style="text-align:center">
+<table class="center" border="1">
+    <tr>{% for i in data1 %}
+     <img src="{{i.photo.url}}" height="250" width="250"></tr>
+
+<tr>
+    <th>PRODUCT NAME</th>
+    <td>{{i.pname}}</td>
+</tr>
+<tr>
+    <th>SALE RATE</th>
+    <td>{{i.srate}}</td>
+</tr>
+
+
+<tr>
+    <th>PRODUCT TYPE</th>
+    <td>{{i.ptype}}</td>
+</tr>
+<tr>
+    <th>PRODUCT UNIT</th>
+    <td>{{i.punit}}</td>
+</tr>
+    <tr>
+    <th>DESCRIPTION</th>
+    <td>{{i.dp}}</td>
+</tr>
+
+
+    {% endfor %}
+</table>
+
+</form><br><br>
+ <input type="submit" name="submit" value="ADD TO CART">
+                       <input type="submit" name="submit" value="BUY NOW">
+
+</body>
+</html>

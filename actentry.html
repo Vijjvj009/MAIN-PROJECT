@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>ACTIVITY ENTRY</title>
+
+</head>
+<body>
+<div style="text-align:center">
+    </div>
+<div style="text-align:center">
+<div class="container p-3 my-3 bg-dark text-white"><br><br>
+<h1>ACTIVITY ENTRY!!!</h1><br><br>
+</div></div>
+<form action="acte" method="post">
+{% csrf_token %}
+     <div class="container-sm border"><br>
+<div class="container">
+<div class="col" style="background-color:white;">
+    <div class="form-group">
+      <div style="text-align:left">
+           <div class="form-group">
+      <div style="text-align:left">
+           <label for="id"><b>ACTIVITY NAME:</b></label>
+           <select name="id" id="id" class="form-control">{% for i in d %}
+<option value="{{i.id}}">{{i.actname}}</option>
+{% endfor %}
+  </select>
+      </div></div>
+           <div class="form-group">
+      <div style="text-align:left">
+           <label for="actdate"><b>DATE:</b></label>
+     <input type="date" name="actdate" id="actdate" class="form-control" required>
+      </div></div>
+           <div class="form-group">
+      <div style="text-align:left">
+           <label for="acttime"><b>TIME:</b></label>
+     <input type="time" name="acttime" id="acttime" class="form-control"  required>
+      </div></div>
+           <div class="form-group">
+      <div style="text-align:left">
+           <label for="venue"><b>VENUE:</b></label>
+     <input type="text" name="venue" id="venue" class="form-control"  placeholder="Enter Venue"   required>
+      </div></div>
+           <div class="form-group">
+      <div style="text-align:left">
+           <label for="location"><b>LOCATION:</b></label>
+     <input type="text" name="location" id="location" class="form-control"  placeholder="Enter Location"   required>
+      </div></div>
+          <div style="text-align:center">
+
+          <input type="submit" name="reg" value="REGISTER" class="btn btn-danger">
+     <input type="reset" name="reset" value="RESET" required class="btn btn-success">
+               </div>
+</form>
+
+</body>
+
+</html>

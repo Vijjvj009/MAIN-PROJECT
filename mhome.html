@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MEMBER HOME</title>
+    <style>
+        h5{
+        display: inline;
+        }
+        table,th,td
+        {
+        border: 1px solid black;
+        }
+        table.center
+        {
+        margin-left: auto;
+        margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align:center">
+<h1>WELCOME TO MEMBER PAGE</h1>
+    <a href="viewmemprofile"><input type="submit" value="VIEW PROFILE"></a>
+    <a href="editmemprofile"><input type="submit" value="EDIT PROFILE"></a>
+     <a href="loan"><input type="submit" value="LOAN"></a>
+<table class="center">
+    <tr>
+        <th>PRODUCT NAME</th>
+        <th>SALE RATE</th>
+        <th>PRODUCT IMAGE</th>
+        <th>PRODUCT TYPE</th>
+        <th>PRODUCT UNIT</th>
+        <th>DESCRIPTION</th>
+        <th>ACTION</th>
+
+
+    </tr>
+
+    <tr>
+        {% for i in d %}
+        <form action="mprodetails" method="post">
+            {% csrf_token %}
+        <input type="hidden" name="id" value="{{i.id}}">
+        <td>{{i.pname}}</td>
+        <td>{{i.srate}}</td>
+        <td><img src="{{i.photo.url}}" height="70" width="70"></td>
+        <td>{{i.ptype}}</td>
+        <td>{{i.punit}}</td>
+        <td>{{i.dp}}</td>
+        <td><a href="mprodetails"><button type="submit" name="view">VIEW</button></a> </td>
+        </form>
+    </tr>
+        {% endfor %}
+</table>
+    </div>
+</body>
+</html>
