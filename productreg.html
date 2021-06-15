@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +9,43 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>PRODUCT REGISTRATION</title>
+     <style type="text/css">
+   label{
+      color: red;
+   }
+    </style>
+    <script src="{% static 'jquery.min.js' %}"></script>
+   <script src="{% static 'jquery.validate.min.js' %}"></script>
+   <script type="text/javascript">
+      $(function()
+      {
+         $("#form1").validate({
+            rules:{
+               pname:{
+                  required:true,
+                  minlength:4
+               },
+               srate:{required:true,
+                       number:true,
+                       minlength:2
+                },
+                 photo:{
+                  required:true,
+               },
+                ptype:{
+                  required:true,
+               },
+                punit:{
+                  required:true,
+               },
+               dp:{
+                  required:true,
+               }
+
+            },
+         });
+      });
+   </script>
 </head>
 <body>
 <div style="text-align:center">
@@ -15,8 +53,16 @@
 <div style="text-align:center">
 <div class="container p-3 my-3 bg-dark text-white"><br><br>
 <h1>REGISTER PRODUCT!!!</h1><br><br>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <a color: white; class="nav-link" href="adminhome">Home</a>
+          &nbsp&nbsp<a class="nav-link" href="productdetails">View Products</a>
+      </nav>
 </div></div>
-<form action="proreg" method="post" enctype="multipart/form-data">
+<form id="form1" action="proreg" method="post" enctype="multipart/form-data">
      <div style="text-align:center">
     {% csrf_token %}
           <div class="container-sm border"><br>
@@ -24,22 +70,22 @@
 <div class="col" style="background-color:white;">
     <div class="form-group">
       <div style="text-align:left">
-      <label for="pname"><b>PRODUCT NAME:</b></label>
+      <div class="pname"><b>PRODUCT NAME:</b></div>
       <input type="text" id="pname" name="pname" class="form-control"  placeholder="Enter Product name" required>
       </div></div>
     <div class="form-group">
       <div style="text-align:left">
-      <label for="srate"><b>PRICE:</b></label>
+      <div class="srate"><b>PRICE:</b></div>
       <input type="number" id="srate" name="srate" class="form-control"  placeholder="Enter Price" required>
       </div></div>
     <div class="form-group">
       <div style="text-align:left">
-           <label for="file"><b>PRODUCT IMAGE:</b></label>
+           <div class="file"><b>PRODUCT IMAGE:</b></div>
      <input type="file" name="file" id="file" class="form-control"  placeholder="Upload Photo"   required>
       </div></div>
      <div class="form-group">
       <div style="text-align:left">
-           <label for="ptype"><b>PRODUCT TYPE:</b></label>
+           <div class="ptype"><b>PRODUCT TYPE:</b></div>
            <select name="ptype" id="ptype" class="form-control">
                <option>HOME DECOR</option>
     <option>SNACKS</option>
@@ -53,7 +99,7 @@
       </div></div>
     <div class="form-group">
       <div style="text-align:left">
-           <label for="punit"><b>PRODUCT UNIT:</b></label>
+           <div class="punit"><b>PRODUCT UNIT:</b></div>
            <select name="punit" id="punit" class="form-control">
                <option>PER PIECE</option>
     <option>500 gm</option>
@@ -63,7 +109,7 @@
       </div></div>
     <div class="form-group">
       <div style="text-align:left">
-      <label for="dp"><b>PRICE:</b></label>
+      <div class="dp"><b>DESCRIPTION:</b></div>
       <input type="text" id="dp" name="dp" class="form-control"  placeholder="Enter Description" required>
       </div></div>
     <input type="submit" name="register" value="REGISTER" class="btn btn-danger">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,29 +7,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>MEMBER DETAILS</title>
-    <style>
-        h5{
-        display: inline;
-        }
-        table,th,td
-        {
-        border: 1px solid black;
-        }
-        table.center
-        {
-        margin-left: auto;
-        margin-right: auto;
-        }
-    </style>
+    <title>APPROVED APPLICATIONS</title>
 </head>
 <body>
 <div class="container-sm border"><br>
 <div class="container">
 <div class="container p-3 my-3 bg-dark text-white">
-    <div style="text-align:center">
-          <h1>MEMBER DETAILS</h1>
-         <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+<div style="text-align:center">
+<h1>APPROVED LOAN DETAILS</h1>
+     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -40,26 +26,28 @@
       </li>
     </ul>
 </nav>
-    </div></div>
-    <div style="text-align:center">
-<div class="container p-3 my-3 bg-dark text-white">
+</div></div>
+<div class="container-sm border"><br>
+<div class="container">
 <table  class="table table-light table-striped" border="2">
-    <tr>
-         <th> SI NO </th>
-        <th> NAME</th>
 
-    </tr>
-    <tr>
-        {% for i in d %}
-        <form action="memberdetails1" method="post">
+<tr>
+    <th>SI NO</th>
+    <th>MEMBER NAME</th>
+    <th>LOAN AMOUNT</th>
+
+</tr>
+     <tr>
+         {% for i in d %}
+        <form action="" method="post">
     {% csrf_token %}
-             <td>{{ forloop.counter }}</td>
-        <td><input type="submit" value="{{i.fname}} {{i.lname}}" name="name"></td>
-            <input type="hidden" name="id" value="{{i.id}}">
-
+            <td>{{ forloop.counter}}</td>
+        <td>{{i.mid.fname}}</td>
+        <td>{{i.lamt}}</td>
     </tr>
     </form>
     {% endfor %}
 </table>
+</div></div>
 </body>
 </html>

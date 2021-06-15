@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,7 +7,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>MEMBER DETAILS</title>
+    <title>LOAN DETAILS</title>
     <style>
         h5{
         display: inline;
@@ -22,13 +22,14 @@
         margin-right: auto;
         }
     </style>
+
 </head>
 <body>
 <div class="container-sm border"><br>
 <div class="container">
 <div class="container p-3 my-3 bg-dark text-white">
     <div style="text-align:center">
-          <h1>MEMBER DETAILS</h1>
+<h1>PENDING APPROVALS</h1>
          <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
@@ -41,25 +42,56 @@
     </ul>
 </nav>
     </div></div>
-    <div style="text-align:center">
+<div style="text-align:center">
 <div class="container p-3 my-3 bg-dark text-white">
-<table  class="table table-light table-striped" border="2">
+
+        <table class="table table-light table-striped" border="2">
     <tr>
-         <th> SI NO </th>
-        <th> NAME</th>
+
+        <th>SI NO</th>
+        <th>PHOTO</th>
+        <th>MEMBER NAME</th>
+        <th>HOUSE NAME</th>
+        <th>AMOUNT</th>
+        <th>REASON</th>
+        <th>REQ DATE</th>
+        <th>ACTION</th>
+
+
+
 
     </tr>
-    <tr>
+             <tr>
         {% for i in d %}
-        <form action="memberdetails1" method="post">
-    {% csrf_token %}
-             <td>{{ forloop.counter }}</td>
-        <td><input type="submit" value="{{i.fname}} {{i.lname}}" name="name"></td>
-            <input type="hidden" name="id" value="{{i.id}}">
+        <form action="approve" method="post">
+            {% csrf_token %}
+              <td>{{ forloop.counter }}</td>
+            <td><img src="{{i.mid.photo.url}}" height="80" width="70"></td>
+             <td>{{i.mid.fname}} {{i.mid.lname}}</td>
+            <td>{{i.mid.hname}}</td>
+             <td>{{i.lamt}}</td>
+            <td>{{i.reason}}</td>
+            <td>{{i.reqdate}}</td>
+
+        <input type="hidden" name="id" value="{{i.id}}">
+            <td><button type="submit">APPROVE</button>
+                </form>
+                 <form action="reject" method="post">
+                       {% csrf_token %}
+                     <input type="hidden" name="id" value="{{i.id}}">
+            <td><button type="submit">REJECT</button>
+
+                     </form>
+
+
+
+
+
+
 
     </tr>
-    </form>
-    {% endfor %}
-</table>
+        {% endfor %}
+            </table>
+    </div>
 </body>
 </html>

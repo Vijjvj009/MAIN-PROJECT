@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +9,66 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>user registration</title>
+      <style type="text/css">
+   label{
+      color: red;
+   }
+   </style>
+   <script src="{% static 'jquery.min.js' %}"></script>
+   <script src="{% static 'jquery.validate.min.js' %}"></script>
+   <script type="text/javascript">
+      $(function()
+      {
+         $("#form1").validate({
+            rules:{
+               fname:{
+                  required:true,
+                  minlength:4
+               },
+               lname:{
+                  required:true,
+                  minlength:1
+
+               },
+               email:{
+                  required:true,
+                  email:true
+               },
+               phone:{required:true,
+                       number:true,
+                       minlength:10
+                },
+                address:{
+                  required:true,
+               },
+               city:{
+                  required:true,
+               },
+               district:{
+                  required:true,
+               },
+               pin:{required:true,
+                       number:true,
+                       minlength:6
+                },
+
+               pass:{
+                  required:true,
+                  minlength:6
+               },
+               cpass:{
+                  required:true,
+                  minlength:6,
+                  equalTo:"#pass"
+
+               },
+
+
+
+            },
+         });
+      });
+   </script>
 </head>
 <body>
 <div style="text-align:center">
@@ -15,8 +76,21 @@
 <div style="text-align:center">
 <div class="container p-3 my-3 bg-dark text-white"><br><br>
 <h1>REGISTER HERE!!!</h1><br><br>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+        <a color: white; class="nav-link" href="home">Home</a>
+
+
+
+
+</nav>
+
 </div></div>
-<form action="reg" method="post">
+<form id="form1" action="reg" method="post">
     <div style="text-align:center">
     {% csrf_token %}
         <div class="container-sm border"><br>
@@ -25,56 +99,56 @@
     <div class="form-group">
       <div style="text-align:left">
 
-          <label for="fname"><b>FIRST NAME:</b></label>
+          <div class="fname"><b>FIRST NAME:</b></div>
      <input type="text" name="fname" id="fname" class="form-control"  placeholder="Enter First name" required>
           </div></div>
       <div class="form-group">
       <div style="text-align:left">
-           <label for="lname"><b>LAST NAME:</b></label>
+           <div class="lname"><b>LAST NAME:</b></div>
      <input type="text" name="lname" id="lname" class="form-control"  placeholder="Enter Last name"   required>
       </div></div>
      <div class="form-group">
       <div style="text-align:left">
-           <label for="email"><b>EMAIL:</b></label>
+          <div class="email"> <b>EMAIL:</b></div>
      <input type="email" name="email" id="email" class="form-control"  placeholder="Enter Email"   required>
       </div></div>
      <div class="form-group">
       <div style="text-align:left">
-           <label for="phone"><b>PHONE NO:</b></label>
+           <div class="phone"><b>PHONE NO:</b></div>
      <input type="number" name="phone" id="phone" class="form-control"  placeholder="Enter Phone no"   required>
       </div></div>
      <div class="form-group">
       <div style="text-align:left">
-           <label for="address"><b>ADDRESS:</b></label>
+           <div class="address"><b>ADDRESS:</b></div>
      <input type="text" name="address" id="address" class="form-control"  placeholder="Enter Address"   required>
       </div></div>
      <div class="form-group">
       <div style="text-align:left">
-           <label for="city"><b>CITY:</b></label>
+           <div class="city"><b>CITY:</b></div>
      <input type="text" name="city" id="city" class="form-control"  placeholder="Enter City"   required>
       </div></div>
      <div class="form-group">
       <div style="text-align:left">
-           <label for="district"><b>DISTRICT:</b></label>
+           <div class="district"><b>DISTRICT:</b></div>
      <input type="text" name="district" id="district" class="form-control"  placeholder="Enter District"   required>
       </div></div>
      <div class="form-group">
       <div style="text-align:left">
-           <label for="pin"><b>PIN NO:</b></label>
+           <div class="pin"><b>PIN NO:</b></div>
      <input type="number" name="pin" id="pin" class="form-control"  placeholder="Enter Pin no"   required>
       </div></div>
      <div class="form-group">
       <div style="text-align:left">
-           <label for="pass"><b>PASSWORD:</b></label>
+           <div class="pass"><b>PASSWORD:</b></div>
      <input type="password" name="pass" id="pass" class="form-control"  placeholder="Enter Password"   required>
       </div></div>
      <div class="form-group">
       <div style="text-align:left">
-           <label for="cpass"><b>CONFIRM PASSWORD:</b></label>
+           <div class="cpass"><b>CONFIRM PASSWORD:</b></div>
      <input type="password" name="cpass" id="cpass" class="form-control"  placeholder="Confirm Your Password"   required>
       </div></div>
-    <input type="submit" name="reg" value="REGISTER" class="btn btn-danger">
-     <input type="reset" name="reset" value="RESET" required class="btn btn-success">
+    <input type="submit" name="reg" value="REGISTER" class="btn btn-success ">
+     <input type="reset" name="reset" value="RESET" required class="btn btn-danger">
 </form>
 </body>
 </html>

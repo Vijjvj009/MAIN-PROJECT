@@ -35,16 +35,15 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="uhome">Home</a>
+        <a class="nav-link" href="mhome">Home</a>
       </li>
     </ul>
 </nav>
     </div></div>
-    <div style="text-align:center">
+         <div style="text-align:center">
 <div class="container p-3 my-3 bg-dark text-white">
+<table  class="table table-dark table-striped" border="2">
 
-
-        <table class=""table table-light table-striped" border="2"">
     <tr>
 
         <th>PRODUCT NAME</th>
@@ -56,14 +55,13 @@
         <th>QUANTITY</th>
         <th>GRAND TOTAL</th>
         <th>BUY</th>
-          <th>REMOVE</th>
-
+        <th>REMOVE</th>
 
 
     </tr>
              <tr>
         {% for i in data %}
-        <form action="shopping" method="post">
+        <form action="shopping3" method="post">
             {% csrf_token %}
         <input type="hidden" name="id" value="{{i.id}}">
         <td>{{i.pid.pname}}</td>
@@ -77,12 +75,11 @@
 
         <td><a href="shopping"><button type="submit" name="view">BUY</button></a> </td>
 
-
         </form>
-                 <form action="remove" method="post">
+                 <form action="remove1" method="post">
                       {% csrf_token %}
                   <input type="hidden" name="id" value="{{i.id}}">
-            <td><a href=""><button type="submit" name="remove">REMOVE</button></a> </td>
+            <td><a href=""><button type="submit" name="remove1">REMOVE</button></a> </td>
                      </form>
     </tr>
         {% endfor %}

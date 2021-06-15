@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <title>user registration</title>
+      <style type="text/css">
+   label{
+      color: red;
+   }
+   </style>
+      <script src="{% static 'jquery.min.js' %}"></script>
+   <script src="{% static 'jquery.validate.min.js' %}"></script>
+   <script type="text/javascript">
+      $(function()
+      {
+         $("#form1").validate({
+            rules:{
+               name:{
+                  required:true,
+                  minlength:3
+               },
+               username:{
+                  required:true,
+                  minlength:6
+
+               },
+               pwd:{
+                  required:true,
+                  minlength:6
+               },
+               cpass:{
+                  required:true,
+                  minlength:6,
+                  equalTo:"#password"
+               },
+               email:{
+                  required:true,
+                  email:true
+               },
+               gender:{
+                  required:true,
+               },
+               address:{
+                  required:true,
+               },
+               caste:{
+                  required:true,
+               },
+               religion:{
+                  required:true,
+               },
+               photo:{
+                  required:true,
+               },
+                    phone:{required:true,
+                       number:true,
+                       minlength:10
+                }
+
+            },
+         });
+      });
+   </script>
+</head>
+<body>
+    <div style="text-align:center">
+    <a href="home"><input type="submit" name="home" value="HOME"></a>
+    </div>
+<div style="text-align:center">
+<div class="container p-3 my-3 bg-dark text-white">
+<h1>USER REGISTRATION</h1><br>
+</div>
+<form id="form1" action="reg" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+<div class="container-sm border"><br>
+<div class="container">
+<div class="col" style="background-color:white;">
+      <div class="form-group">
+      <div style="text-align:left">
+          <div class="name"><b>NAME:</b></div>
+      <input type="text" id="name" name="name" class="form-control"  placeholder="Enter name">
+      </div></div>
+      <div class="form-group">
+      <div style="text-align:left">
+      <div class="address"><b>ADDRESS:</b></div>
+      <input type="text" id="address" name="address" class="form-control"  placeholder="Enter address">
+      </div></div>
+      <div class="form-group">
+      <div style="text-align:left">
+      <div class="email"><b>E-MAIL:</b></div>
+      <input type="text" id="email" name="email" class="form-control"  placeholder="Enter Email">
+      </div></div>
+      <div class="form-group">
+      <div style="text-align:left">
+      <div class="phone"><b>PHONE:</b></div>
+      <input type="text" id="phone" name="phone" class="form-control"  placeholder="Enter Phone Number">
+      </div></div>
+      <div class="form-group">
+      <div style="text-align:left">
+      <div class="caste"><b>CASTE:</b></div>
+      <input type="text" id="caste" name="caste" class="form-control"  placeholder="Enter Caste">
+      </div></div>
+      <div class="form-group">
+      <div style="text-align:left">
+      <div class="religion"><b>RELIGION:</b></div>
+      <input type="text" id="religion" name="religion" class="form-control"  placeholder="Enter Religion">
+      </div></div>
+      <div class="form-group">
+      <div style="text-align:left">
+      <div class="sex"><b>SEX:</b></div>
+      <div class="radio-inline">
+      <input type="radio" id="sex" name="sex" value="male" >Male
+      </div>
+      <div class="radio-inline">
+      <input type="radio" id="sex" name="sex" value="female">Female
+      </div></div></div>
+       <div class="form-group">
+      <div style="text-align:left">
+      <div class="wardno"><b>WARD NUMBER:</b></div>
+      <input type="number" id="wardno" name="wardno" class="form-control"  placeholder="Enter Ward number">
+      </div></div>
+      <div class="form-group">
+      <div style="text-align:left">
+      <div class="place"><b>WARD NAME:</b></div>
+      <input type="text" id="place" name="place" class="form-control"  placeholder="Enter Place">
+      </div></div>
+      <div class="form-group">
+      <div style="text-align:left">
+      <div class="username"><b>USERNAME:</b></div>
+      <input type="text" id="username" name="username" class="form-control"  placeholder="Enter Username">
+      </div></div>
+      <div class="form-group">
+      <div style="text-align:left">
+      <div class="password"><b>PASSWORD:</b></div>
+      <input type="password" id="password" name="pwd" class="form-control"  placeholder="Enter Password">
+      </div></div>
+      <div class="form-group">
+      <div style="text-align:left">
+      <div class="confirmpassword"><b>CONFIRM PASSWORD:</b></div>
+      <input type="password" id="confirmpassword" name="cpass" class="form-control"  placeholder="Re-type Password">
+      </div></div>
+       <div class="form-group">
+      <div style="text-align:left">
+      <div class="photo"><b>PHOTO:</b></div>
+      <input type="file" id="photo" name="file" class="form-control"  placeholder="upload your image">
+      </div></div><br>
+    <input type="submit" name="reg" value="REGISTER">
+    </div>
+    </div>
+    </div>
+
+
+</form>
+    </div>
+</body>
+</html>

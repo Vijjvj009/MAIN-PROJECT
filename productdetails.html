@@ -1,58 +1,76 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>PRODUCT DETAILS</title>
+     <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>view design</title>
     <style>
-        h5{
-        display: inline;
-        }
-        table,th,td
-        {
-        border: 1px solid black;
-        }
-        table.center
-        {
-        margin-left: auto;
-        margin-right: auto;
-        }
+         h5{
+    display: inline;
+}
+table,th,td
+{
+border: 1px solid black;
+}
+table.center
+{
+margin-left: auto;
+margin-right: auto;
+}
     </style>
 </head>
 <body>
+<div class="container-sm border"><br>
+<div class="container">
+<div class="container p-3 my-3 bg-dark text-white">
+    <div style="text-align:center">
+    <h1>PRODUCT DETAILS</h1>
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="adminhome">Home</a>
+      </li>
+    </ul>
+</nav>
+    </div></div>
 <div style="text-align:center">
-<h1>PRODUCT DETAILS</h1>
-
-<table class="center">
+<div class="container p-3 my-3 bg-dark text-white">
+<table  class="table table-light table-striped" border="2">
     <tr>
         <th>PRODUCT NAME</th>
-        <th>SALE RATE</th>
-        <th>PRODUCT IMAGE</th>
+
         <th>PRODUCT TYPE</th>
         <th>PRODUCT UNIT</th>
         <th>DESCRIPTION</th>
+        <th>SALE RATE</th>
+        <th>PRODUCT IMAGE</th>
         <th>ACTION</th>
-
-
-
     </tr>
-
     <tr>
         {% for i in d %}
         <form action="editadminpro" method="post">
             {% csrf_token %}
         <input type="hidden" name="id" value="{{i.id}}">
         <td>{{i.pname}}</td>
-        <td>{{i.srate}}</td>
-        <td><img src="{{i.photo.url}}" height="70" width="70"></td>
+
         <td>{{i.ptype}}</td>
         <td>{{i.punit}}</td>
         <td>{{i.dp}}</td>
+            <td>{{i.srate}}</td>
+        <td><img src="{{i.photo.url}}" height="70" width="70"></td>
         <td><a href="editadminpro"><button type="submit" name="edit">EDIT</button></a> </td>
-
         </form>
     </tr>
-        {% endfor %}
+    {% endfor %}
 </table>
-    </div>
 </body>
 </html>

@@ -3,6 +3,119 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>login</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  font-size: 17px;
+}
+
+.container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
+}
+
+.container img {vertical-align: middle;}
+
+.container .content {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  width: 97%;
+  height:98%;
+  padding: 180px;
+}
+</style>
+
+</head>
+<body>
+<div class="container">
+    <img src="{% static 'll2.jpg' %}"  style="width:100%;">
+  <div class="content">
+<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Sign In</div>
+                        <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
+                    </div>
+<form action="log" method="post">
+    <div style="text-align:center">
+    {% csrf_token %}
+        <div class="container-sm border"><br>
+            <h5>Hello, Welcome to your account</h5>
+<div class="col" style="background-color:white;">
+    <div class="form-group">
+      <div style="text-align:left">
+          <p class="text-danger">{{error}}</p>
+          <p class="text-danger">{{na}}</p>
+      <div style="padding-top:30px" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+                        <form id="loginform" class="form-horizontal" role="form">
+
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input type="text" id="phone" name="phone" class="form-control"  placeholder="Enter Phone No" required>
+      </div>
+      <div class="form-group">
+      <div style="text-align:left">
+      <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <input type="password" id="password" name="password" class="form-control"  placeholder="Enter Password" required>
+      </div>
+   <center><button type="submit" class="btn btn-success">LOGIN</button></center>
+
+<div class="form-group">
+                                    <div class="col-md-12 control">
+                                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                            Don't have an account!
+                                        <a href="ureg" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                            Sign Up <a href="ureg">Here</a>
+                                        </a>
+                                        </div>
+                                    </div>
+                                </div>
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
                  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -16,12 +129,27 @@
 <div style="text-align:center">
 <div class="container p-3 my-3 bg-dark text-white"><br><br>
 <h1>LOGIN HERE!!!</h1><br><br>
+     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+        <a color: white; class="nav-link" href="home">Home</a>
+
+
+
+
+</nav>
+
 </div></div>
 
 <form action="log" method="post">
     <div style="text-align:center">
     {% csrf_token %}
         <div class="container-sm border"><br>
+            <h5>Hello, Welcome to your account</h5>
+
 <div class="container">
 <div class="col" style="background-color:white;">
     <div class="form-group">
@@ -36,11 +164,11 @@
       <label for="password"><b>PASSWORD:</b></label>
       <input type="password" id="password" name="password" class="form-control"  placeholder="Enter Password">
       </div></div>
-    <input type="submit" name="login" value="LOGIN" class="btn btn-danger">
+    <input type="submit" name="login" value="LOGIN" class="btn btn-success">
 </div></div></div></div>
     <div style="text-align:center">
     <b>Don't have an Account?<a href="ureg"> Sign up</a>
         </b></div>
 </form>
 </body>
-</html>
+</html>-->

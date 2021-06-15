@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +9,71 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>MEMBER REGISTRATION</title>
+    <style type="text/css">
+   label{
+      color: red;
+   }
+    </style>
+    <script src="{% static 'jquery.min.js' %}"></script>
+   <script src="{% static 'jquery.validate.min.js' %}"></script>
+   <script type="text/javascript">
+      $(function()
+      {
+         $("#form1").validate({
+            rules:{
+               fname:{
+
+                  required:true,
+                  minlength:4
+               },
+               lname:{
+                  required:true,
+                  minlength:1
+
+               },
+               adhno:{required:true,
+                       number:true,
+                       minlength:12
+                },
+                photo:{
+                  required:true,
+               },
+               hname:{
+                  required:true,
+               },
+               place:{
+                  required:true,
+               },
+               pin:{required:true,
+                       number:true,
+                       minlength:6
+                },
+                phone:{required:true,
+                       number:true,
+                       minlength:10
+                },
+                dob:{required:true,
+
+
+                },
+
+               email:{
+                  required:true,
+                  email:true
+               },
+
+               pass:{
+                  required:true,
+                  minlength:6
+               },
+
+
+
+
+            },
+         });
+      });
+   </script>
 </head>
 <body>
 <div style="text-align:center">
@@ -15,8 +81,20 @@
 <div style="text-align:center">
 <div class="container p-3 my-3 bg-dark text-white"><br><br>
 <h1>REGISTER MEMBER!!!</h1><br><br>
+     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+        <a color: white; class="nav-link" href="adminhome">Home</a>
+          &nbsp&nbsp<a class="nav-link" href="memberdetails">View Member</a>
+
+
+</nav>
 </div></div>
-<form action="memreg" method="post" enctype="multipart/form-data">
+
+<form id="form1" action="memreg" method="post" enctype="multipart/form-data">
     <div style="text-align:center">
     {% csrf_token %}
          <div class="container-sm border"><br>
@@ -24,47 +102,53 @@
 <div class="col" style="background-color:white;">
     <div class="form-group">
       <div style="text-align:left">
-      <label for="fname"><b>FIRST NAME:</b></label>
-      <input type="fname" id="fname" name="fname" class="form-control"  placeholder="Enter First name">
+      <div class="fname"><b>FIRST NAME:</b></div>
+      <input type="text" id="fname" name="fname" class="form-control"  placeholder="Enter First name">
       </div></div>
     <div class="form-group">
       <div style="text-align:left">
-      <label for="lname"><b>LAST NAME:</b></label>
+      <div class="lname"><b>LAST NAME:</b></div>
       <input type="text" id="lname" name="lname" class="form-control"  placeholder="Enter Last name">
       </div></div>
      <div class="form-group">
       <div style="text-align:left">
-           <label for="adhno"><b>ADHAR NO:</b></label>
+           <div class="adhno"><b>ADHAR NO:</b></div>
      <input type="number" name="adhno" id="adhno" class="form-control"  placeholder="Enter Adhar no"   required>
       </div></div>
      <div class="form-group">
       <div style="text-align:left">
-           <label for="file"><b>PHOTO:</b></label>
+           <div class="file"><b>PHOTO:</b></div>
      <input type="file" name="file" id="file" class="form-control"  placeholder="Upload Photo"   required>
       </div></div>
      <div class="form-group">
       <div style="text-align:left">
-           <label for="hname"><b>HOUSE NAME:</b></label>
+           <div class="hname"><b>HOUSE NAME:</b></div>
      <input type="text" name="hname" id="hname" class="form-control"  placeholder="Enter Housename"   required>
       </div></div>
      <div class="form-group">
       <div style="text-align:left">
-           <label for="place"><b>PLACE:</b></label>
+           <div class="place"><b>PLACE:</b></div>
      <input type="text" name="place" id="place" class="form-control"  placeholder="Enter Place"   required>
       </div></div>
+    <!--<div class="form-group">
+      <div style="text-align:left">
+           <label for="district"><b>DISTRICT:</b></label>
+     <input type="text" name="district" id="district" class="form-control"  placeholder="Enter District"   required>
+      </div></div>-->
+
      <div class="form-group">
       <div style="text-align:left">
-           <label for="pin"><b>PIN NO:</b></label>
+           <div class="pin"><b>PIN NO:</b></div>
      <input type="number" name="pin" id="pin" class="form-control"  placeholder="Enter Pin no"   required>
       </div></div>
      <div class="form-group">
       <div style="text-align:left">
-           <label for="phone"><b>PHONE:</b></label>
+           <div class="phone"><b>PHONE:</b></div>
      <input type="number" name="phone" id="phone" class="form-control"  placeholder="Enter Phone no"   required>
       </div></div>
     <div class="form-group">
       <div style="text-align:left">
-           <label for="caste"><b>CASTE:</b></label>
+           <div class="caste"><b>CASTE:</b></div>
            <select name="caste" id="caste" class="form-control">
     <option>HINDU</option>
     <option>MUSLIM</option>
@@ -73,17 +157,17 @@
       </div></div>
     <div class="form-group">
       <div style="text-align:left">
-           <label for="dob"><b>DATE OF BIRTH:</b></label>
+           <div class="dob"><b>DATE OF BIRTH:</b></div>
      <input type="date" name="dob" id="dob" class="form-control"  placeholder="Enter Date of birth"   required>
       </div></div>
      <div class="form-group">
       <div style="text-align:left">
-           <label for="email"><b>EMAIL:</b></label>
+           <div class="email"><b>EMAIL:</b></div>
      <input type="email" name="email" id="email" class="form-control"  placeholder="Enter Email"   required>
       </div></div>
     <div class="form-group">
       <div style="text-align:left">
-           <label for="password"><b>PASSWORD:</b></label>
+           <div class="password"><b>PASSWORD:</b></div>
      <input type="password" name="password" id="password" class="form-control"  placeholder="Enter Password"   required>
       </div></div>
     <input type="submit" name="reg" value="REGISTER" class="btn btn-danger">

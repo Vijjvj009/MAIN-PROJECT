@@ -2,9 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Title</title>
 </head>
 <body>
+<div style="text-align:center">
+</div>
+<div style="text-align:center">
+<div class="container p-3 my-3 bg-dark text-white"><br><br>
+ <h1>REQUEST LOAN!!!</h1><br><br>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+        <a color: white; class="nav-link" href="mhome">Home</a>
+
+
+
+</nav>
+</div></div>
+<form id="form1" action="rloan" method="post">
+    <div style="text-align:center">
+    {% csrf_token %}
+        <div class="container-sm border"><br>
+<div class="container">
+<div class="col" style="background-color:white;">
+    <div class="form-group">
+      <div style="text-align:left">
+      <div class="lamt"><b>LOAN AMOUNT:</b></div>
+      <input type="number" id="lamt" name="lamt" class="form-control"  placeholder="Enter The Amount">
+      </div></div>
+    <div class="form-group">
+      <div style="text-align:left">
+      <div class="reason"><b>REASON:</b></div>
+      <input type="text" id="reason" name="reason" class="form-control"  placeholder="Enter The Reason">
+      </div></div>
+     <input type="submit" name="reg" value="REQUEST" class="btn btn-danger">
+     <input type="reset" name="reset" value="RESET" required class="btn btn-success">
+
+
 
 </body>
 </html>

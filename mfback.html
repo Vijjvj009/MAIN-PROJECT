@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+                 <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>MY FEEDBACK</title>
+     <style type="text/css">
+   label{
+      color: red;
+   }
+   </style>
+   <!--<script src="{% static 'jquery.min.js' %}"></script>
+   <script src="{% static 'jquery.validate.min.js' %}"></script>
+   <script type="text/javascript">
+      $(function()
+      {
+         $("#form1").validate({
+            rules:{
+               actname:{
+                  required:true,
+                  minlength:4
+               },
+               amount:{required:true,
+                       number:true,
+                       minlength:4
+                },
+
+
+            },
+         });
+      });
+   </script>-->
+</head>
+<body>
+<div style="text-align:center">
+    </div>
+<div style="text-align:center">
+<div class="container p-3 my-3 bg-dark text-white"><br><br>
+<h1>MY FEEDBACK!!!</h1><br><br>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <a color: white; class="nav-link" href="mhome">Home</a>
+
+
+      </nav>
+</div></div>
+
+<form action="mfback1" method="post">
+    <div style="text-align:center">
+    {% csrf_token %}
+        <div class="container-sm border"><br>
+<div class="container">
+<div class="col" style="background-color:white;">
+    <div class="form-group">
+      <div style="text-align:left">
+      <div class="fback"><b>YOUR FEEDBACK:</b></div>
+          <textarea id="fback" name="fback" class="form-control"  placeholder="Enter Your Feedback"></textarea>
+      </div></div>
+
+    <input type="submit" name="submit" value="REGISTER" class="btn btn-danger">
+     <input type="reset" name="reset" value="RESET" required class="btn btn-success">
+</div></div></div></div>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function pdf()
+        {
+        print()
+        }
+
+    </script>
+    <meta charset="UTF-8">
+    <title>MEMBER DETAILS</title>
+    <style>
+        h5{
+        display: inline;
+        }
+        table,th,td
+        {
+        border: 1px solid black;
+        }
+        table.center
+        {
+        margin-left: auto;
+        margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align:center">
+<h1>KUDUMBASHREE PROCESS HANDLING SYSTEM</h1>
+    <h2>REGISTERED MEMBER DETAILS</h2>
+
+
+<table class="center">
+    <tr>
+        <th> SI NO </th>
+        <th>MEMBER NAME</th>
+        <th>PHOTO</th>
+        <th>ADHAR NO</th>
+        <th>HOUSE NAME</th>
+        <th>PLACE</th>
+        <th>PIN NO</th>
+        <th>PHONE NO</th>
+        <th>CASTE</th>
+        <th>DATE OF BIRTH</th>
+        <th>EMAIL</th>
+
+
+    </tr>
+
+    <tr>
+        {% for i in d %}
+        <form action="" method="post">
+            {% csrf_token %}
+        <input type="hidden" name="id" value="{{i.id}}">
+        <td>{{ forloop.counter }}</td>
+        <td>{{i.fname}} {{i.lname}}</td>
+        <td><img src="{{i.photo.url}}" height="80" width="70"></td>
+        <td>{{i.adhno}}</td>
+        <td>{{i.hname}}</td>
+        <td>{{i.place}}</td>
+        <td>{{i.pin}}</td>
+        <td>{{i.phone}}</td>
+        <td>{{i.caste}}</td>
+        <td>{{i.dob}}</td>
+        <td>{{i.email}}</td>
+
+
+
+
+        </form>
+    </tr>
+        {% endfor %}
+</table>
+    <input type="submit" onclick="pdf()" value="PRINT">
+    </div>
+</body>
+</html>

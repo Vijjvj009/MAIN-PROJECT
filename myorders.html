@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Member Orders</title>
+    <style>
+        h5{
+    display: inline;
+}
+table,th,td
+{
+border: 1px solid black;
+}
+table.center
+{
+margin-left: auto;
+margin-right: auto;
+}
+    </style>
+</head>
+<body class="container">
+<div style="text-align:center">
+<div class="container p-3 my-3 bg-dark text-white">
+<h2>MY ORDERS</h2>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="mhome">Home</a>
+      </li>
+    </ul>
+</nav>
+</div>
+</div>
+
+
+
+<table class="table table-dark table-striped" border="1">
+
+    <thead>
+    <tr>
+        <th>SI NO</th>
+        <th>PRODUCT IMAGE</th>
+        <th>PRODUCT NAME</th>
+        <th>DATE</th>
+        <th>QUANTITY</th>
+        <th>GRAND TOTAL</th>
+        <th>ACTION</th>
+        <th>INVOICE</th>
+
+
+    </tr>
+      </thead>
+    <tbody>
+
+
+
+        <form action="myorders" method="post">
+    <tr>
+        {% for i in d %}
+        {% csrf_token %}
+        <td>{{ forloop.counter }}</td>
+        <td><img src="{{i.pid.photo.url}}" height="100" width="100"></td>
+        <td>{{i.pid.pname}}</td>
+        <td>{{i.cdate}}</td>
+        <td>{{i.qty}}</td>
+        <td>{{i.gtotal}}</td>
+        <form action="mfback" method="post">
+            {% csrf_token %}
+            <td><button type="submit" name="edit">FEEDBACK</button></td></form>
+
+
+
+       <form action="invoice" method="post">
+        {% csrf_token %}
+        <td><button type="submit" name="edit">GENERATE INVOICE</button> </td></form>
+    </tr>
+
+
+
+        </form>
+
+
+
+
+    </tbody>
+    {% endfor %}
+  </table>
+</div></div>
+
+
+</body>
+</html>

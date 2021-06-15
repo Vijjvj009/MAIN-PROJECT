@@ -2,20 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>edit CUSTOMER</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>edit adminpro</title>
 </head>
 <body>
-<center><h1>EDIT PRODUCT</h1></center>
+<div style="text-align:center">
+<div class="container p-3 my-3 bg-dark text-white">
+<h1>EDIT PRODUCT</h1>
+     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+        <a color: white; class="nav-link" href="adminhome">Home</a>
+
+
+
+</nav>
+</div></div>
 <form action="update1" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div style="text-align:center">
+        <div class="container-sm border"><br>
+<div class="container">
+<div class="col" style="background-color:white;">
+    <div class="form-group">
+      <div style="text-align:left">
+      <label for="pname"><b>PRODUCT NAME:</b></label>
+      <input type="text" id="pname" name="pname" value="{{data.pname}}" class="form-control"  placeholder="Product name">
+      </div></div>
+    <div class="form-group">
+      <div style="text-align:left">
+      <label for="ptype"><b>PRODUCT TYPE:</b></label>
+      <input type="text" id="ptype" name="ptype" value="{{data.ptype}}" class="form-control"  placeholder="Product Type">
+      </div></div>
+    <div class="form-group">
+      <div style="text-align:left">
+      <label for="punit"><b>PRODUCT UNIT:</b></label>
+      <input type="text" id="punit" name="punit" value="{{data.punit}}" class="form-control"  placeholder="Product Unit">
+      </div></div>
+    <div class="form-group">
+      <div style="text-align:left">
+      <label for="dp"><b>PRODUCT DESCRIPTION:</b></label>
+      <input type="text" id="dp" name="dp" value="{{data.dp}}" class="form-control"  placeholder="Product Description">
+      </div></div>
+    <div class="form-group">
+      <div style="text-align:left">
+      <label for="srate"><b>SALE RATE:</b></label>
+      <input type="number" id="srate" name="srate" value="{{data.srate}}" class="form-control"  placeholder="Product Sale rate">
+      </div></div>
+    <div class="form-group">
+      <div style="text-align:left">
+      <label for="photo"><b>PRODUCT IMAGE:</b></label>
+      <input type="file" id="photo" name="file" value="{{data.photo}}" class="form-control"  placeholder="Product Photo">
+      </div></div>
 
-        PRODUCT NAME:<input type="text" name="pname" value="{{data.pname}}"><br><br>
-        SALE RATE:<input type="number" name="srate" value="{{data.srate}}"><br><br>
-        PRODUCT IMAGE:<input type="file" name="file" value="{{data.photo}}"><br><br>
-        PRODUCT TYPE:<input type="text" name="ptype" value="{{data.ptype}}"><br><br>
-        PRODUCT UNIT:<input type="text" name="punit" value="{{data.punit}}"><br><br>
-        DESCRIPTION:<input type="text" name="dp" value="{{data.dp}}"><br><br>
+
         <input type="hidden" value="{{data.id}}" name="id">
         <input type="submit" name="update" value="UPDATE">
 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function pdf()
+        {
+        print()
+        }
+
+    </script>
+    <meta charset="UTF-8">
+    <title>MEMBER DETAILS</title>
+    <style>
+        h5{
+        display: inline;
+        }
+        table,th,td
+        {
+        border: 1px solid black;
+        }
+        table.center
+        {
+        margin-left: auto;
+        margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align:center">
+<h1>KUDUMBASHREE PROCESS HANDLING SYSTEM</h1>
+    <h2>APPROVED LOAN DETAILS</h2>
+
+
+<table class="center">
+    <tr>
+        <th> SI NO </th>
+        <th>MEMBER NAME</th>
+        <th>LOAN AMOUNT</th>
+        <th>SANCTION DATE</th>
+
+
+    </tr>
+
+    <tr>
+        {% for i in d %}
+        <form action="" method="post">
+            {% csrf_token %}
+        <input type="hidden" name="id" value="{{i.id}}">
+        <td>{{ forloop.counter }}</td>
+        <td>{{i.mid.fname}} {{i.mid.lname}}</td>
+
+        <td>{{i.lamt}}</td>
+        <td>{{i.reqdate}}</td>
+
+
+
+
+
+        </form>
+    </tr>
+        {% endfor %}
+</table>
+    <input type="submit" onclick="pdf()" value="PRINT">
+    </div>
+</body>
+</html>

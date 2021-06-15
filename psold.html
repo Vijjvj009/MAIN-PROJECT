@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function pdf()
+        {
+        print()
+        }
+
+    </script>
+    <meta charset="UTF-8">
+    <title>MEMBER DETAILS</title>
+    <style>
+        h5{
+        display: inline;
+        }
+        table,th,td
+        {
+        border: 1px solid black;
+        }
+        table.center
+        {
+        margin-left: auto;
+        margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align:center">
+<h1>KUDUMBASHREE PROCESS HANDLING SYSTEM</h1>
+    <h2>DETAILS OF PRODUCTS SOLD</h2>
+
+
+<table class="center">
+    <tr>
+        <th> SI NO </th>
+        <th>PRODUCT NAME</th>
+        <th>PRODUCT IMAGE</th>
+        <th>PRODUCT TYPE</th>
+        <th>PRODUCT UNIT</th>
+        <th>DESCRIPTION</th>
+        <th>ORDER DATE</th>
+        <th>RATE</th>
+        <th>QUANTITY</th>
+        <th>GRAND TOTAL</th>
+
+
+
+    </tr>
+
+    <tr>
+        {% for i in d %}
+        <form action="" method="post">
+            {% csrf_token %}
+        <input type="hidden" name="id" value="{{i.id}}">
+        <td>{{ forloop.counter }}</td>
+        <td>{{i.pid.pname}}</td>
+        <td><img src="{{i.pid.photo.url}}" height="80" width="70"></td>
+        <td>{{i.pid.ptype}}</td>
+        <td>{{i.pid.punit}}</td>
+        <td>{{i.pid.dp}}</td>
+            <td>{{i.cdate}}</td>
+        <td>{{i.pid.srate}}</td>
+        <td>{{i.qty}}</td>
+        <td>{{i.gtotal}}</td>
+
+
+
+
+        </form>
+    </tr>
+        {% endfor %}
+</table>
+    <input type="submit" onclick="pdf()" value="PRINT">
+    </div>
+</body>
+</html>

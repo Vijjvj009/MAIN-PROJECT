@@ -8,15 +8,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>edit CUSTOMER</title>
+    <title>edit mem shoop</title>
 </head>
 <body>
 <div class="container-sm border"><br>
 <div class="container">
 <div class="container p-3 my-3 bg-dark text-white">
     <div style="text-align:center">
-<center><h1>EDIT PROFILE</h1></center>
-<form action="update" method="post" >
+<center><h1>CHANGE DELIVERY</h1></center>
+<form action="update10" method="post" >
     {% csrf_token %}
      <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -25,7 +25,7 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="uhome">Home</a>
+        <a class="nav-link" href="mhome">Home</a>
       </li>
     </ul>
 </nav>
@@ -33,41 +33,19 @@
     <div style="text-align:center">
 
         <input type="hidden" value="{{data.id}}" name="id">
+
+
         <div class="form-group">
 <div style="text-align:left">
-<label for="fname"><b>FIRST NAME:</b></label>
-<input type="text" id="fname" name="fname" value="{{data.fname}}" class="form-control">
-</div></div>
-        <div class="form-group">
-<div style="text-align:left">
-<label for="lname"><b>LAST NAME:</b></label>
-<input type="text" id="lname" name="lname" value="{{data.lname}}" class="form-control">
-</div></div>
-        <div class="form-group">
-<div style="text-align:left">
-<label for="email"><b>EMAIL:</b></label>
-<input type="text" id="email" name="email" value="{{data.email}}" class="form-control">
-</div></div>
-        <div class="form-group">
-<div style="text-align:left">
-<label for="phone"><b>PHONE:</b></label>
-<input type="text" id="phone" name="phone" value="{{data.phone}}" class="form-control">
-</div></div>
-        <div class="form-group">
-<div style="text-align:left">
-<label for="address"><b>ADDRESS:</b></label>
-<input type="text" id="address" name="address" value="{{data.address}}" class="form-control">
+<label for="hname"><b>ADDRESS:</b></label>
+<input type="text" id="hname" name="hname" value="{{data.hname}}" class="form-control">
 </div></div>
          <div class="form-group">
 <div style="text-align:left">
-<label for="city"><b>CITY:</b></label>
-<input type="text" id="city" name="city" value="{{data.city}}" class="form-control">
+<label for="place"><b>CITY:</b></label>
+<input type="text" id="place" name="place" value="{{data.place}}" class="form-control">
 </div></div>
-        <div class="form-group">
-<div style="text-align:left">
-<label for="district"><b>DISTRICT:</b></label>
-<input type="text" id="district" name="district" value="{{data.district}}" class="form-control">
-</div></div>
+
     <div class="form-group">
 <div style="text-align:left">
 <label for="pin"><b>PIN:</b></label>
